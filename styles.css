@@ -279,9 +279,71 @@ main {
     border-color: var(--color-ink);
 }
 
+.bio-location {
+    font-style: italic;
+    color: var(--color-ink-muted) !important;
+    margin-top: 0.5rem;
+}
+
 .bio-download {
     margin-top: 2rem;
 }
+
+
+/* ─── Speaking Section ─── */
+
+.speaking-section {
+    padding: 3rem 0;
+}
+
+.speaking-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-ink);
+}
+
+.speaking-intro {
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.topic-item {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-rule);
+}
+
+.topic-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.4rem;
+}
+
+.topic-item p {
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    line-height: 1.7;
+}
+
+.speaking-cta {
+    font-size: 0.88rem;
+    color: var(--color-ink-muted);
+}
+
+
+/* ─── Short Bio Section ─── */
 
 .short-bio-section {
     padding: 3rem 0 5rem;
@@ -442,6 +504,30 @@ main {
 }
 
 
+/* ─── 404 Page ─── */
+
+.not-found {
+    padding: 6rem 0 8rem;
+    text-align: center;
+}
+
+.not-found h1 {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--color-rule);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.not-found p {
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+
 /* ─── Footer ─── */
 
 footer {
@@ -509,6 +595,11 @@ footer p {
 
     .bio-photo {
         max-width: 280px;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .contact-grid {
