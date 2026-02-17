@@ -199,6 +199,10 @@ main {
 
 .hero-photo img {
     width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: cover;
+    object-position: top center;
     filter: grayscale(15%);
     transition: filter 0.4s ease;
 }
