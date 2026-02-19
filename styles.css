@@ -46,7 +46,7 @@ body {
     color: var(--color-ink);
     background-color: var(--color-paper);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -148,7 +148,7 @@ nav a.active {
 .header-rule hr {
     border: none;
     height: 1px;
-    background: var(--color-ink);
+    background: var(--color-rule);
 }
 
 
@@ -216,12 +216,6 @@ main {
     max-height: 380px;
     object-fit: cover;
     object-position: top center;
-    filter: grayscale(15%);
-    transition: filter 0.4s ease;
-}
-
-.hero-photo:hover img {
-    filter: grayscale(0%);
 }
 
 .hero-content p {
@@ -247,6 +241,41 @@ main {
 }
 
 
+/* ─── Homepage Highlights ─── */
+
+.highlights-section {
+    padding: 3rem 0 4rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.highlight-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.highlight-label {
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+}
+
+
 /* ─── Bio Page ─── */
 
 .bio-section {
@@ -263,12 +292,6 @@ main {
     max-height: 420px;
     object-fit: cover;
     object-position: top center;
-    filter: grayscale(15%);
-    transition: filter 0.4s ease;
-}
-
-.bio-photo:hover img {
-    filter: grayscale(0%);
 }
 
 .bio-content h1 {
@@ -737,6 +760,15 @@ footer p {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .highlights-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .highlight-number {
+        font-size: 1.8rem;
     }
 
     .hero-links {
