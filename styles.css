@@ -4,6 +4,19 @@
    Mike Sertic — Personal Site Styles
    ═══════════════════════════════════════════ */
 
+/* Accessibility: screen-reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -203,6 +216,12 @@ main {
     max-height: 380px;
     object-fit: cover;
     object-position: top center;
+    filter: grayscale(15%);
+    transition: filter 0.4s ease;
+}
+
+.hero-photo:hover img {
+    filter: grayscale(0%);
 }
 
 .hero-content p {
@@ -244,6 +263,12 @@ main {
     max-height: 420px;
     object-fit: cover;
     object-position: top center;
+    filter: grayscale(15%);
+    transition: filter 0.4s ease;
+}
+
+.bio-photo:hover img {
+    filter: grayscale(0%);
 }
 
 .bio-content h1 {
