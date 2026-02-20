@@ -853,6 +853,10 @@ footer p {
         flex-direction: column;
         gap: 0.75rem;
     }
+
+    .hero-links .text-link {
+        width: fit-content;
+    }
 }
 
 @media (max-width: 480px) {
