@@ -3,6 +3,21 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/about-mike-sertic",
+      "destination": "/bio",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/bio",
+      "permanent": true
+    },
+    {
+      "source": "/about-me",
+      "destination": "/bio",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
