@@ -2,51 +2,28 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/about-mike-sertic",
-      "destination": "/bio",
-      "permanent": true
-    },
-    {
-      "source": "/about",
-      "destination": "/bio",
-      "permanent": true
-    },
-    {
-      "source": "/about-me",
-      "destination": "/bio",
-      "permanent": true
-    },
+    { "source": "/bio", "destination": "/about", "permanent": true },
+    { "source": "/about-mike-sertic", "destination": "/about", "permanent": true },
+    { "source": "/about-me", "destination": "/about", "permanent": true },
+    { "source": "/media", "destination": "/press", "permanent": true },
+    { "source": "/media-kit", "destination": "/press", "permanent": true },
+    { "source": "/mike-sertic-media-kit.pdf", "destination": "/press", "permanent": true },
+    { "source": "/og-image.png", "destination": "/og/home.jpg", "permanent": true },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "michaelsertic.com"
-        }
-      ],
+      "has": [{ "type": "host", "value": "michaelsertic.com" }],
       "destination": "https://mikesertic.com/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.mikesertic.com"
-        }
-      ],
+      "has": [{ "type": "host", "value": "www.mikesertic.com" }],
       "destination": "https://mikesertic.com/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.michaelsertic.com"
-        }
-      ],
+      "has": [{ "type": "host", "value": "www.michaelsertic.com" }],
       "destination": "https://mikesertic.com/$1",
       "permanent": true
     }
@@ -55,37 +32,35 @@
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" }
       ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/icons/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/favicon.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/og-image.png",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
+      "source": "/og/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    },
+    {
+      "source": "/(.*)\\.(jpg|webp)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+    },
+    {
+      "source": "/(.*)\\.woff2",
+      "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
     }
   ]
 }
