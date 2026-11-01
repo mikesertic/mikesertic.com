@@ -20,7 +20,11 @@ python3 -m http.server 8000
 
 Push to `main` on GitHub. Vercel builds and deploys automatically; there is nothing to compile. Redirects, clean URLs, and cache headers live in `vercel.json`.
 
-Cloudflare sits in front of Vercel. Rocket Loader and Bot Fight Mode are switched on there and inject scripts into every page; both can be turned off in the Cloudflare dashboard with no effect on the site.
+Cloudflare sits in front of Vercel. Bot Fight Mode and Email Address Obfuscation are fine to leave on; their scripts load from this origin, which the Content-Security-Policy allows. Keep Rocket Loader **off**: it rewrites inline scripts and loads its own from `ajax.cloudflare.com`, and the CSP blocks both, which would silently disable analytics.
+
+Security headers (Content-Security-Policy, HSTS, and the rest) live in `vercel.json`. The CSP allows the two inline scripts (the analytics snippet and the bio copy button) by SHA-256 hash. If you edit either script, even its whitespace, run `python3 -I scripts/check-csp.py` and paste the new hash into `vercel.json`, or the browser will block the script without any visible error on the page. Inline `style=""` attributes are also blocked by the CSP; use a class in `styles.css` instead (there is a small Utilities block at the bottom).
+
+`.vercelignore` keeps `scripts/` and `README.md` off the public origin.
 
 ## Where things are
 
@@ -34,6 +38,7 @@ Cloudflare sits in front of Vercel. Rocket Loader and Bot Fight Mode are switche
 | Icons | `favicon.svg`, `icons/`, `site.webmanifest` |
 | SEO | `sitemap.xml`, `robots.txt`, JSON-LD in each page's `<head>` |
 | Analytics | Google Analytics 4 snippet in each page's `<head>` |
+| Security headers | `vercel.json` (`headers` block); `scripts/check-csp.py` verifies inline script hashes |
 
 The header, nav, and footer are duplicated in every HTML file. When you change one, search and replace across all eight files.
 
@@ -57,5 +62,6 @@ This uses the copy of Google Chrome installed on the Mac. No packages are needed
 
 ## Checks before publishing
 
+- Run `python3 -I scripts/check-csp.py` if any `<script>` block changed.
 - Run Lighthouse on the deployed preview URL. Targets are 90 or above in all four categories.
 - Check that nothing in the copy uses an em dash or a placeholder marked `[VERIFY]` that has not been verified.

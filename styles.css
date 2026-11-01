@@ -1330,3 +1330,13 @@ footer p {
 .logo-card figcaption .text-link {
     font-size: 0.75rem;
 }
+
+
+/* ─── Utilities ─── */
+/* Kept at the end so they win over earlier single-class rules. The pages use these instead of
+   style="" attributes, which lets the Content-Security-Policy in vercel.json forbid inline styles. */
+
+.section-top-gap { padding-top: 4rem; }
+.measure { max-width: 680px; }
+.mb-1 { margin-bottom: 1rem; }
+.mt-1-5 { margin-top: 1.5rem; }

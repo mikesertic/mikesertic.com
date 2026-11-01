@@ -1,0 +1,5 @@
+# Not part of the served site. Keeps build tooling and repo docs off the public origin.
+scripts/
+README.md
+.DS_Store
+.gitignore
